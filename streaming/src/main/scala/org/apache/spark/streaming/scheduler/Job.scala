@@ -99,5 +99,9 @@ class Job(val time: Time, func: () => _) {
       time, outputOpId, callSite.shortForm, callSite.longForm, _startTime, _endTime, failureReason)
   }
 
+  def getStartTime(): Option[Long] = {
+    _startTime
+  }
+
   override def toString: String = id
 }

@@ -175,6 +175,7 @@ class JobScheduler(val ssc: StreamingContext) extends Logging {
     job.setEndTime(completedTime)
     listenerBus.post(StreamingListenerOutputOperationCompleted(job.toOutputOperationInfo))
     logInfo("Finished job " + job.id + " from job set of time " + jobSet.time)
+    logSHY(job.time+" "+job.getStartTime()+" "+completedTime)
     if (jobSet.hasCompleted) {
       jobSets.remove(jobSet.time)
       jobGenerator.onBatchCompletion(jobSet.time)

@@ -54,6 +54,10 @@ trait Logging {
   }
 
   // Log methods that take only a String
+  protected def logSHY(msg: => String) {
+    if (log.isInfoEnabled) log.info("-SHY-:"+msg)
+  }
+
   protected def logInfo(msg: => String) {
     if (log.isInfoEnabled) log.info(msg)
   }
